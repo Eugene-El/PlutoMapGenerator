@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlutoMapGenerationViews"
+        xmlns:viewModels="clr-namespace:PlutoMapGenerationViewModels;assembly=PlutoMapGenerationViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <viewModels:MainViewModel />
+    </Window.DataContext>
+    
+    
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="0" Source="{Binding MapImage}"></Image>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>
+        </StackPanel>
     </Grid>
 </Window>

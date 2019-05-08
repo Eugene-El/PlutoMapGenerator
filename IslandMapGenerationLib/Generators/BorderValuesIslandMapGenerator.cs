@@ -12,19 +12,33 @@ namespace IslandMapGenerationLib.Generators
 {
     public class BorderValuesIslandMapGenerator : IIslandMapGenerator
     {
-        [Range(0, 100)]
-        [DefaultValue(25)]
-        public double DistanceFromBorderCoeficient { get; set; }
+        private double _distanceFromBorderCoeficient;
+        /// <summary>
+        /// In range from 1 to 100
+        /// </summary>
+        public double DistanceFromBorderCoeficient
+        {
+            get { return _distanceFromBorderCoeficient; }
+            set { _distanceFromBorderCoeficient = Math.Min(100, Math.Max(1, value)); }
+        }
 
-        [Range(0, 100)]
-        [DefaultValue(25)]
-        public double DeviationCoeficient { get; set; }
+        private double _deviationCoeficient;
+        /// <summary>
+        /// In range from 1 to 100
+        /// </summary>
+        public double DeviationCoeficient
+        {
+            get { return _deviationCoeficient; }
+            set { _deviationCoeficient = Math.Min(100, Math.Max(1, value)); }
+        }
 
         private Random _random;
 
-        public BorderValuesIslandMapGenerator(int? seed = null)
+        public BorderValuesIslandMapGenerator(int? seed = null, int distanceFromBorderCoeficient = 25, int deviationCoeficient = 25)
         {
             _random = seed.HasValue ? new Random(seed.Value) : new Random();
+            DistanceFromBorderCoeficient = distanceFromBorderCoeficient;
+            DeviationCoeficient = deviationCoeficient;
         }
 
         public IslandMap Generate(int width, int height)
