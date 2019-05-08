@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IslandMapGenerationLib", "IslandMapGenerationLib\IslandMapGenerationLib.csproj", "{76695EA6-4E63-482A-9B88-3F2FDC75159A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlutoMapGenerationViewModels", "PlutoMapGenerationViewModels\PlutoMapGenerationViewModels.csproj", "{7BA2897E-EE37-4238-B592-E0B716864581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlutoMapGenerationViews", "PlutoMapGenerationView\PlutoMapGenerationViews.csproj", "{52B23990-033C-4C36-9A55-4F21C65FBACB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlutoMapGenerationModels", "PlutoMapGenerationModels\PlutoMapGenerationModels.csproj", "{F6E1648B-5A97-456F-9DE6-7960A88048EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlutoMapGenerationWpfApplication", "PlutoMapGenerationWpfApplication", "{4DE44533-6B2D-4623-A32E-629D0F5134AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,26 @@ Global
 		{76695EA6-4E63-482A-9B88-3F2FDC75159A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76695EA6-4E63-482A-9B88-3F2FDC75159A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76695EA6-4E63-482A-9B88-3F2FDC75159A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA2897E-EE37-4238-B592-E0B716864581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA2897E-EE37-4238-B592-E0B716864581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA2897E-EE37-4238-B592-E0B716864581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA2897E-EE37-4238-B592-E0B716864581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B23990-033C-4C36-9A55-4F21C65FBACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B23990-033C-4C36-9A55-4F21C65FBACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B23990-033C-4C36-9A55-4F21C65FBACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B23990-033C-4C36-9A55-4F21C65FBACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E1648B-5A97-456F-9DE6-7960A88048EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E1648B-5A97-456F-9DE6-7960A88048EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E1648B-5A97-456F-9DE6-7960A88048EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E1648B-5A97-456F-9DE6-7960A88048EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BA2897E-EE37-4238-B592-E0B716864581} = {4DE44533-6B2D-4623-A32E-629D0F5134AC}
+		{52B23990-033C-4C36-9A55-4F21C65FBACB} = {4DE44533-6B2D-4623-A32E-629D0F5134AC}
+		{F6E1648B-5A97-456F-9DE6-7960A88048EB} = {4DE44533-6B2D-4623-A32E-629D0F5134AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {425FF1A3-ABC4-484B-812C-C9211D6AA24D}
