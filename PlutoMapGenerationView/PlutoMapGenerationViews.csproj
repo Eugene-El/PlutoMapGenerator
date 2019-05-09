@@ -118,6 +118,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonSmartUserControlsLib\CommonSmartUserControlsLib.csproj">
+      <Project>{8fd200fb-e8c5-48ca-a07f-5ce47e40e8e2}</Project>
+      <Name>CommonSmartUserControlsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlutoMapGenerationViewModels\PlutoMapGenerationViewModels.csproj">
       <Project>{7ba2897e-ee37-4238-b592-e0b716864581}</Project>
       <Name>PlutoMapGenerationViewModels</Name>

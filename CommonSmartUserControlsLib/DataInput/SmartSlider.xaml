@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="CommonSmartUserControlsLib.DataInput.SmartSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CommonSmartUserControlsLib.DataInput"
+             mc:Ignorable="d" 
+             d:DesignHeight="18" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="18px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="18px"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="0" Content="–" />
+        <Slider x:Name="CentralSlider" Grid.Column="1" Margin="4 0" Minimum="1" Maximum="10" Value="{Binding Value}"/>
+        <Button Grid.Column="2" Content="+" />
+    </Grid>
+</UserControl>

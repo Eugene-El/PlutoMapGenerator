@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IslandMapGenerationLib", "IslandMapGenerationLib\IslandMapGenerationLib.csproj", "{76695EA6-4E63-482A-9B88-3F2FDC75159A}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlutoMapGenerationWpfApplication", "PlutoMapGenerationWpfApplication", "{4DE44533-6B2D-4623-A32E-629D0F5134AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapVisualizationLib", "MapVisualizationLib\MapVisualizationLib.csproj", "{32ACBF1D-8791-467A-86D9-F2945081FC46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonSmartUserControlsLib", "CommonSmartUserControlsLib\CommonSmartUserControlsLib.csproj", "{8FD200FB-E8C5-48CA-A07F-5CE47E40E8E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{32ACBF1D-8791-467A-86D9-F2945081FC46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32ACBF1D-8791-467A-86D9-F2945081FC46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32ACBF1D-8791-467A-86D9-F2945081FC46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD200FB-E8C5-48CA-A07F-5CE47E40E8E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD200FB-E8C5-48CA-A07F-5CE47E40E8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD200FB-E8C5-48CA-A07F-5CE47E40E8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD200FB-E8C5-48CA-A07F-5CE47E40E8E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

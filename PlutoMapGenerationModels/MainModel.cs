@@ -27,8 +27,29 @@ namespace PlutoMapGenerationModels
             get { return _mapVisualizator.Scale; }
             set
             {
-                RaisePropertyChanged(nameof(Scale));
                 _mapVisualizator.Scale = value;
+                RaisePropertyChanged(nameof(Scale));
+            }
+        }
+
+        private int _width;
+        private int _height;
+        public int Width
+        {
+            get { return _width; }
+            set
+            {
+                _width = value;
+                RaisePropertyChanged(nameof(Width));
+            }
+        }
+        public int Height
+        {
+            get { return _height; }
+            set
+            {
+                _height = value;
+                RaisePropertyChanged(nameof(Height));
             }
         }
     }

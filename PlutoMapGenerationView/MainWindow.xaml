@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlutoMapGenerationViews"
         xmlns:viewModels="clr-namespace:PlutoMapGenerationViewModels;assembly=PlutoMapGenerationViewModels"
+        xmlns:smartDataInput="clr-namespace:CommonSmartUserControlsLib.DataInput;assembly=CommonSmartUserControlsLib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.DataContext>
@@ -29,7 +30,17 @@
                     <TextBlock Text="{Binding Scale}"></TextBlock>
                 </TextBlock>
             </Label>
-            <Slider Minimum="1" Maximum="10" Value="{Binding Scale}"/>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18px"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="18px"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="–" />
+                <Slider Grid.Column="1" Margin="4 0" Minimum="1" Maximum="10" Value="{Binding Scale}"/>
+                <Button Grid.Column="2" Content="+" />
+            </Grid>
             <Separator/>
             <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>
         </StackPanel>
