@@ -22,6 +22,10 @@ namespace PlutoMapGenerationViewModels
             Generate = new DelegateCommand(() => _mainModel.GetImage() );
         }
 
+        public int Scale {
+            get { return _mainModel.Scale; }
+            set { _mainModel.Scale = value; }
+        }
         public DelegateCommand Generate { get; private set; }
         public BitmapSource MapImage => _mainModel.MapImage?.ToBitmapImage();
     }

@@ -23,6 +23,14 @@
 
         <Image Grid.Column="0" Grid.Row="0" Source="{Binding MapImage}"></Image>
         <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label>
+                <TextBlock>
+                    <TextBlock Text="Scale "></TextBlock>
+                    <TextBlock Text="{Binding Scale}"></TextBlock>
+                </TextBlock>
+            </Label>
+            <Slider Minimum="1" Maximum="10" Value="{Binding Scale}"/>
+            <Separator/>
             <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>
         </StackPanel>
     </Grid>

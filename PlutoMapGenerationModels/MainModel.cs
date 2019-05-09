@@ -22,5 +22,14 @@ namespace PlutoMapGenerationModels
         }
 
         public Bitmap MapImage { get; private set; }
+
+        public int Scale {
+            get { return _mapVisualizator.Scale; }
+            set
+            {
+                RaisePropertyChanged(nameof(Scale));
+                _mapVisualizator.Scale = value;
+            }
+        }
     }
 }

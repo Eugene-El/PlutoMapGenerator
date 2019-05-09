@@ -12,7 +12,7 @@ namespace MapVisualizationLib
 {
     public class MapVisualizator
     {
-        [Range(1, 1000)]
+        [Range(1, 100)]
         public int Scale { get; set; } = 1;
 
         public Bitmap Visualize(IslandMap map)
