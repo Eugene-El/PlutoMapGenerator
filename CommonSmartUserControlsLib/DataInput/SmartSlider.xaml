@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CommonSmartUserControlsLib.DataInput"
              mc:Ignorable="d" 
-             d:DesignHeight="18" d:DesignWidth="200">
-    <Grid>
+             d:DesignHeight="18" d:DesignWidth="200"
+             x:Name="root">
+    <Grid Mouse.MouseWheel="Grid_MouseWheel">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18px"/>
             <ColumnDefinition Width="*"/>
@@ -14,7 +15,10 @@
         </Grid.ColumnDefinitions>
 
         <Button x:Name="MinusBtn" Grid.Column="0" Content="–" Click="MinusBtn_Click" />
-        <Slider x:Name="CentralSlider" Grid.Column="1" Margin="4 0" Minimum="1" Maximum="10" Value="{Binding Value, ElementName=root}"/>
+        <Slider x:Name="CentralSlider" Grid.Column="1" Margin="4 0"
+                Value="{Binding Value, ElementName=root}"
+                Minimum="{Binding Minimum, ElementName=root}"
+                Maximum="{Binding Maximum, ElementName=root}"/>
         <Button x:Name="PlusBtn" Grid.Column="2" Content="+" Click="PlusBtn_Click"/>
     </Grid>
 </UserControl>

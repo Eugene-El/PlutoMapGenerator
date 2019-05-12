@@ -30,17 +30,8 @@
                     <TextBlock Text="{Binding Scale}"></TextBlock>
                 </TextBlock>
             </Label>
-            <smartDataInput:SmartSlider Value="{Binding Scale}"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="18px"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="18px"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="–" />
-                <Slider Grid.Column="1" Margin="4 0" Minimum="1" Maximum="10" Value="{Binding Scale}"/>
-                <Button Grid.Column="2" Content="+" />
-            </Grid>
+            <smartDataInput:SmartSlider Value="{Binding Scale, Mode=TwoWay}" Minimum="1" Maximum="10"/>
+            
             <Separator/>
             <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>
         </StackPanel>

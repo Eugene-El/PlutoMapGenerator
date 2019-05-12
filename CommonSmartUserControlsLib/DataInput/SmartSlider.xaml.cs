@@ -23,6 +23,9 @@ namespace CommonSmartUserControlsLib.DataInput
         public SmartSlider()
         {
             InitializeComponent();
+            Minimum = 0;
+            Maximum = 100;
+            Value = 0;
         }
 
 
@@ -51,7 +54,13 @@ namespace CommonSmartUserControlsLib.DataInput
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            set {
+                if (value > Maximum)
+                    value = Maximum;
+                else if (value < Minimum)
+                    value = Minimum;
+                SetValue(ValueProperty, value);
+            }
         }
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
@@ -66,19 +75,20 @@ namespace CommonSmartUserControlsLib.DataInput
 
         private void MinusBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Value - 1 < Minimum)
-                Value = Minimum;
-            else
-                Value--;
+            Value--;
         }
 
         private void PlusBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Value + 1 > Maximum)
-                Value = Maximum;
-            else
-                Value++;
+            Value++;
         }
 
+        private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+                Value++;
+            else if (e.Delta < 0)
+                Value--;
+        }
     }
 }
