@@ -25,14 +25,60 @@ namespace CommonSmartUserControlsLib.DataInput
             InitializeComponent();
         }
 
-        private int _value = 0;
+
+
+        public int Minimum
+        {
+            get { return (int)GetValue(MinimumProperty); }
+            set { SetValue(MinimumProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Minimum.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MinimumProperty =
+            DependencyProperty.Register(nameof(Minimum), typeof(int), typeof(SmartSlider), new PropertyMetadata(0));
+
+
+        public int Maximum
+        {
+            get { return (int)GetValue(MaximumProperty); }
+            set { SetValue(MaximumProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Maximum.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MaximumProperty =
+            DependencyProperty.Register(nameof(Maximum), typeof(int), typeof(SmartSlider), new PropertyMetadata(100));
+
+
+        
         public int Value
         {
-            get { return _value; }
-            set
-            {
-                CentralSlider.Value = _value = value;
-            }
+            get { return (int)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
         }
+        // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ValueProperty =
+            DependencyProperty.Register(nameof(Value), typeof(int), typeof(SmartSlider),
+                new PropertyMetadata(0, new PropertyChangedCallback(ValueChanged)));
+        private static void ValueChanged(DependencyObject depObj, DependencyPropertyChangedEventArgs args)
+        {
+            SmartSlider smartSlider = (SmartSlider)depObj;
+            Slider slider = smartSlider.CentralSlider;
+            slider.Value = (int)args.NewValue;
+        }
+
+        private void MinusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Value - 1 < Minimum)
+                Value = Minimum;
+            else
+                Value--;
+        }
+
+        private void PlusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Value + 1 > Maximum)
+                Value = Maximum;
+            else
+                Value++;
+        }
+
     }
 }

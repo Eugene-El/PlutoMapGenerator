@@ -30,7 +30,7 @@
                     <TextBlock Text="{Binding Scale}"></TextBlock>
                 </TextBlock>
             </Label>
-            
+            <smartDataInput:SmartSlider Value="{Binding Scale}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="18px"/>
