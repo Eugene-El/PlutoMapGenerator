@@ -22,15 +22,29 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="0" Grid.Row="0" Source="{Binding MapImage}"></Image>
+        <Image Grid.Column="0" Grid.Row="0" Source="{Binding MapImage}" Stretch="Fill"></Image>
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <Label>
-                <TextBlock>
-                    <TextBlock Text="Scale "></TextBlock>
-                    <TextBlock Text="{Binding Scale}"></TextBlock>
-                </TextBlock>
-            </Label>
-            <smartDataInput:SmartSlider Value="{Binding Scale, Mode=TwoWay}" Minimum="1" Maximum="10"/>
+
+            <smartDataInput:SmartSlider
+                LabelVisibility="Visible"
+                Text="Width "
+                Value="{Binding Width, Mode=TwoWay}"
+                Minimum="1" Maximum="100"
+                Margin="4"/>
+
+            <smartDataInput:SmartSlider
+                LabelVisibility="Visible"
+                Text="Height "
+                Value="{Binding Height, Mode=TwoWay}"
+                Minimum="1" Maximum="100"
+                Margin="4"/>
+
+            <smartDataInput:SmartSlider
+                LabelVisibility="Visible"
+                Text="Scale "
+                Value="{Binding Scale, Mode=TwoWay}"
+                Minimum="1" Maximum="10"
+                Margin="4"/>
             
             <Separator/>
             <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>

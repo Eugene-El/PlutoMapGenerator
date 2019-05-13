@@ -15,9 +15,10 @@ namespace PlutoMapGenerationModels
         private MapVisualizator _mapVisualizator = new MapVisualizator();
         private BorderValuesIslandMapGenerator _mapGenerator = new BorderValuesIslandMapGenerator() { };
 
+
         public void GetImage()
         {
-            MapImage = _mapVisualizator.Visualize(_mapGenerator.Generate(100, 100));
+            MapImage = _mapVisualizator.Visualize(_mapGenerator.Generate(Width, Height));
             RaisePropertyChanged(nameof(MapImage));
         }
 
@@ -32,8 +33,8 @@ namespace PlutoMapGenerationModels
             }
         }
 
-        private int _width;
-        private int _height;
+        private int _width = 100;
+        private int _height = 100;
         public int Width
         {
             get { return _width; }

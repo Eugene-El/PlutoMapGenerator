@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CommonSmartUserControlsLib.DataInput"
              mc:Ignorable="d" 
-             d:DesignHeight="18" d:DesignWidth="200"
+             d:DesignHeight="50" d:DesignWidth="200"
              x:Name="root">
     <Grid Mouse.MouseWheel="Grid_MouseWheel">
         <Grid.ColumnDefinitions>
@@ -13,12 +13,24 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="18px"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <Button x:Name="MinusBtn" Grid.Column="0" Content="–" Click="MinusBtn_Click" />
-        <Slider x:Name="CentralSlider" Grid.Column="1" Margin="4 0"
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Visibility="{Binding LabelVisibility, ElementName=root}">
+            <TextBlock>
+                <TextBlock Text="{Binding Text, ElementName=root}"></TextBlock>
+                <TextBlock Text="{Binding Value, ElementName=root}"></TextBlock>
+                <TextBlock Text=" / "></TextBlock>
+                <TextBlock Text="{Binding Maximum, ElementName=root}"></TextBlock>
+            </TextBlock>
+        </Label>
+        <Button x:Name="MinusBtn" Grid.Row="1" Grid.Column="0" Content="–" Click="MinusBtn_Click" />
+        <Slider x:Name="CentralSlider" Grid.Row="1" Grid.Column="1" Margin="4 0"
                 Value="{Binding Value, ElementName=root}"
                 Minimum="{Binding Minimum, ElementName=root}"
                 Maximum="{Binding Maximum, ElementName=root}"/>
-        <Button x:Name="PlusBtn" Grid.Column="2" Content="+" Click="PlusBtn_Click"/>
+        <Button x:Name="PlusBtn" Grid.Row="1" Grid.Column="2" Content="+" Click="PlusBtn_Click"/>
     </Grid>
 </UserControl>

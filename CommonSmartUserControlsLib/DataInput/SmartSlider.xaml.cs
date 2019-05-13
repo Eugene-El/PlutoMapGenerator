@@ -23,9 +23,6 @@ namespace CommonSmartUserControlsLib.DataInput
         public SmartSlider()
         {
             InitializeComponent();
-            Minimum = 0;
-            Maximum = 100;
-            Value = 0;
         }
 
 
@@ -50,7 +47,32 @@ namespace CommonSmartUserControlsLib.DataInput
             DependencyProperty.Register(nameof(Maximum), typeof(int), typeof(SmartSlider), new PropertyMetadata(100));
 
 
-        
+
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register(nameof(Text), typeof(string), typeof(SmartSlider), new PropertyMetadata("Value:"));
+
+
+
+
+        public Visibility LabelVisibility
+        {
+            get { return (Visibility)GetValue(LabelVisibilityProperty); }
+            set { SetValue(LabelVisibilityProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for LabelVisibility.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LabelVisibilityProperty =
+            DependencyProperty.Register(nameof(LabelVisibility), typeof(Visibility), typeof(SmartSlider), new PropertyMetadata(Visibility.Collapsed));
+
+
+
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
