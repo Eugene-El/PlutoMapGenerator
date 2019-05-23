@@ -32,7 +32,7 @@ namespace IslandMapGenerationLib.Common
 
         public void Set(int x, int y, IslandTitle title)
         {
-            if (x < 0 || y < 0 || x > Width || y > Height)
+            if (x < 0 || y < 0 || x >= Width || y >= Height)
                 throw new IndexOutOfRangeException("X or Y is out of range");
 
             _map[y, x] = title;

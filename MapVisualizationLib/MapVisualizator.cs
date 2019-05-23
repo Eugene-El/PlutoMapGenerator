@@ -17,31 +17,25 @@ namespace MapVisualizationLib
 
         public Bitmap Visualize(IslandMap map)
         {
-            Bitmap bitmap = new Bitmap(map.Width * Scale, map.Height * Scale);
+            Bitmap bitmap = new Bitmap(map.Width * Scale, map.Height * Scale); ;
+            Graphics graphics = Graphics.FromImage(bitmap);
             for (int y = 0; y < map.Height; y++)
             {
                 for (int x = 0; x < map.Width; x++)
                 {
                     if (map.Get(x, y)?.Value == 1)
                     {
-                        Fill(bitmap, x * Scale, y * Scale, (x + 1) * Scale, (y + 1) * Scale, Color.Brown);
+                        graphics.FillRectangle(new SolidBrush(Color.Brown), x * Scale, y * Scale, Scale, Scale);
                     }
                     else
                     {
-                        Fill(bitmap, x * Scale, y * Scale, (x + 1) * Scale, (y + 1) * Scale, Color.Blue);
+                        graphics.FillRectangle(new SolidBrush(Color.Blue), x * Scale, y * Scale, Scale, Scale);
                     }
                 }
             }
-
             return bitmap;
         }
 
-        private void Fill(Bitmap bitmap, int x1, int y1, int x2, int y2, Color color)
-        {
-            for (int y = y1; y < y2; y++)
-                for (int x = x1; x < x2; x++)
-                    bitmap.SetPixel(x, y, color);
-        }
 
     }
 }

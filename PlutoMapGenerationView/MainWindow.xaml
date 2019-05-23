@@ -29,14 +29,14 @@
                 LabelVisibility="Visible"
                 Text="Width "
                 Value="{Binding Width, Mode=TwoWay}"
-                Minimum="1" Maximum="100"
+                Minimum="1" Maximum="1000"
                 Margin="4"/>
 
             <smartDataInput:SmartSlider
                 LabelVisibility="Visible"
                 Text="Height "
                 Value="{Binding Height, Mode=TwoWay}"
-                Minimum="1" Maximum="100"
+                Minimum="1" Maximum="1000"
                 Margin="4"/>
 
             <smartDataInput:SmartSlider
