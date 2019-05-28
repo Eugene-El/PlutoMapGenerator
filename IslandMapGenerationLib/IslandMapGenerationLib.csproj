@@ -46,6 +46,7 @@
     <Compile Include="Common\IslandMap.cs" />
     <Compile Include="Common\IslandTitle.cs" />
     <Compile Include="Generators\BorderValuesIslandMapGenerator.cs" />
+    <Compile Include="Generators\CosinusIslandMapGenerator.cs" />
     <Compile Include="Interfaces\IIslandMapGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

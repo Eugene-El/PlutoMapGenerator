@@ -1,4 +1,5 @@
 ﻿using IslandMapGenerationLib.Generators;
+using IslandMapGenerationLib.Interfaces;
 using MapVisualizationLib;
 using Prism.Mvvm;
 using System;
@@ -13,7 +14,7 @@ namespace PlutoMapGenerationModels
     public class MainModel : BindableBase
     {
         private MapVisualizator _mapVisualizator = new MapVisualizator();
-        private BorderValuesIslandMapGenerator _mapGenerator = new BorderValuesIslandMapGenerator() { };
+        private IIslandMapGenerator _mapGenerator = new CosinusIslandMapGenerator() { };
 
 
         public void GetImage()
