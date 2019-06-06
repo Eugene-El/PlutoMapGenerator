@@ -58,18 +58,46 @@ namespace IslandMapGenerationLib.Generators
                 coords[coords.Count - 1] = (coords.Last() + coords.First()) / 2;
             }
 
-            // Drawing
+            // Drawing border
             for (int i = 1; i < coords.Count; i++)
                 DrawLine(map, coords[i - 1], coords[i]);
             DrawLine(map, coords.First(), coords.Last());
 
+            // Fill inside part
+            Stack<Coordinates> pixelsToColor = new Stack<Coordinates>();
+            pixelsToColor.Push(new Coordinates(width / 2, height / 2));
+
+
+
+            while (pixelsToColor.Count > 0)
+            {
+                Coordinates coordinates = pixelsToColor.Pop();
+
+                Coordinates[] probableCoords = new Coordinates[] {
+                    new Coordinates(coordinates.X - 1, coordinates.Y),
+                    new Coordinates(coordinates.X + 1, coordinates.Y),
+                    new Coordinates(coordinates.X, coordinates.Y - 1),
+                    new Coordinates(coordinates.X, coordinates.Y + 1)
+                };
+
+                map.Set(coordinates, new IslandTitle(1));
+                for (int i = 0; i < probableCoords.Length; i++)
+                    if (probableCoords[i].Y >= 0 && probableCoords[i].X >= 0 &&
+                        probableCoords[i].Y < height && probableCoords[i].X < width &&
+                        !coords.Any(c => c == probableCoords[i]) &&
+                        map.Get(probableCoords[i]) == null)
+                        pixelsToColor.Push(probableCoords[i]);
+            }
+
+
+            // Return map
             return map;
         }
 
         private int Validate(int value, int max)
         {
             if (value < 0)
-                return 0;
+                return 0; 
             if (value >= max)
                 return max - 1;
             return value;
@@ -93,7 +121,7 @@ namespace IslandMapGenerationLib.Generators
             int dy = Math.Abs(coords2.Y - coords.Y), sy = coords.Y < coords2.Y ? 1 : -1;
             int err = (dx > dy ? dx : -dy) / 2,
                 e2;
-            for (;;)
+            while (true)
             {
                 map.Set(coords.X, coords.Y, new IslandTitle(1));
                 if (coords.X == coords2.X && coords.Y == coords2.Y) break;

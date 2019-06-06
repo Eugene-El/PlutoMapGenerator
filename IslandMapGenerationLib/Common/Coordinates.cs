@@ -28,5 +28,15 @@ namespace IslandMapGenerationLib.Common
         {
             return new Coordinates(coords1.X / value, coords1.Y / value);
         }
+
+        public static bool operator ==(Coordinates coords1, Coordinates coords2)
+        {
+            return coords1.X == coords2.X && coords1.Y == coords2.Y;
+        }
+
+        public static bool operator !=(Coordinates coords1, Coordinates coords2)
+        {
+            return coords1.X != coords2.X || coords1.Y != coords2.Y;
+        }
     }
 }
