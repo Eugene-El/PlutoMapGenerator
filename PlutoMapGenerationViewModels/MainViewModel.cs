@@ -39,6 +39,11 @@ namespace PlutoMapGenerationViewModels
             set { _mainModel.Height = value; }
         }
 
+        public bool IsGenerationPosible
+        {
+            get { return _mainModel.IsGenerationPosible; }
+        }
+
         public DelegateCommand Generate { get; private set; }
         public BitmapSource MapImage => _mainModel.MapImage?.ToBitmapImage();
     }

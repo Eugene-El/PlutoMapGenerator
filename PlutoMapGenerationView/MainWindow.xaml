@@ -47,7 +47,10 @@
                 Margin="4"/>
             
             <Separator/>
-            <Button Content="Generate" Margin="4" Command="{Binding Generate}"></Button>
+            <Button
+                Content="Generate" Margin="4"
+                Command="{Binding Generate}"
+                IsEnabled="{Binding IsGenerationPosible}"/>
         </StackPanel>
     </Grid>
 </Window>
