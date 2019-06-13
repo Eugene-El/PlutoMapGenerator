@@ -67,28 +67,48 @@ namespace IslandMapGenerationLib.Generators
             Stack<Coordinates> pixelsToColor = new Stack<Coordinates>();
             pixelsToColor.Push(new Coordinates(width / 2, height / 2));
 
-
-
-            while (pixelsToColor.Count > 0)
+            int tasksCount = width * height / 1000; // was 10 000
+            if (tasksCount < 1) tasksCount = 1;
+            List<Task> tasks = new List<Task>();
+            for (int t = 0; t < tasksCount; t++)
             {
-                Coordinates coordinates = pixelsToColor.Pop();
+                tasks.Add(Task.Factory.StartNew(() => {
+                    while (pixelsToColor.Count > 0)
+                    {
+                        Coordinates coordinates;
+                        lock (pixelsToColor)
+                        {
+                            if (pixelsToColor.Count < 1)
+                                return;
+                            coordinates = pixelsToColor.Pop();
+                        }
 
-                Coordinates[] probableCoords = new Coordinates[] {
-                    new Coordinates(coordinates.X - 1, coordinates.Y),
-                    new Coordinates(coordinates.X + 1, coordinates.Y),
-                    new Coordinates(coordinates.X, coordinates.Y - 1),
-                    new Coordinates(coordinates.X, coordinates.Y + 1)
-                };
+                        Coordinates[] probableCoords = new Coordinates[] {
+                            new Coordinates(coordinates.X - 1, coordinates.Y),
+                            new Coordinates(coordinates.X + 1, coordinates.Y),
+                            new Coordinates(coordinates.X, coordinates.Y - 1),
+                            new Coordinates(coordinates.X, coordinates.Y + 1)
+                        };
 
-                map.Set(coordinates, new IslandTitle(1));
-                for (int i = 0; i < probableCoords.Length; i++)
-                    if (probableCoords[i].Y >= 0 && probableCoords[i].X >= 0 &&
-                        probableCoords[i].Y < height && probableCoords[i].X < width &&
-                        !coords.Any(c => c == probableCoords[i]) &&
-                        map.Get(probableCoords[i]) == null)
-                        pixelsToColor.Push(probableCoords[i]);
+                        lock (map)
+                        {
+                            map.Set(coordinates, new IslandTitle(1));
+                        }
+                        for (int i = 0; i < probableCoords.Length; i++)
+                            if (probableCoords[i].Y >= 0 && probableCoords[i].X >= 0 &&
+                                probableCoords[i].Y < height && probableCoords[i].X < width &&
+                                !coords.Any(c => c == probableCoords[i]) &&
+                                map.Get(probableCoords[i]) == null)
+                            {
+                                lock (pixelsToColor)
+                                {
+                                    pixelsToColor.Push(probableCoords[i]);
+                                }
+                            }
+                    }
+                }));
             }
-
+            Task.WaitAll(tasks.ToArray());
 
             // Return map
             return map;
